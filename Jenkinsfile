@@ -11,28 +11,34 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/vardhandeepak27/jenkins-demo'
             }
         }
+        stage('Check Node.js Installation') {
+            steps {
+                bat 'node --version'
+                bat 'npm --version'
+    }
+}
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test' // Add tests later if needed
+                bat 'npm test' // Add tests later if needed
             }
         }
 
         stage('Build') {
             steps {
-                sh 'echo "Building the application..."'
+                bat 'echo "Building the application..."'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying the application..."'
+                bat 'echo "Deploying the application..."'
                 // Optional: Add Docker or deployment steps here
             }
         }
