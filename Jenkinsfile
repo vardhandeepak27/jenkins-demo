@@ -42,6 +42,12 @@ pipeline {
                 // Optional: Add Docker or deployment steps here
             }
         }
+
+        stage('Run Application') {
+            steps {
+                bat 'node index.js &' // Run the application in the background
+    }
+}
     }
 
     post {
